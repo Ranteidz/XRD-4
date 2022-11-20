@@ -2,26 +2,26 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR;
 
-namespace _Scripts
+namespace _scripts.Movement
 {
     public class ContinuousMovement : MonoBehaviour
     {
         public XRNode inputSource;
         public float speed = 1;
         public float additionalHeight = 0.2f;
+        public float gravity = -9.81f;
+        public LayerMask groundLayer;
         private CharacterController _character;
+        private float _fallingSpeed;
         private Vector2 _inputAxis;
         private XROrigin _rig;
-        public float gravity = -9.81f;
-        private float _fallingSpeed;
-        public LayerMask groundLayer;
-       
+
         private void Start()
         {
             _character = GetComponent<CharacterController>();
             _rig = GetComponent<XROrigin>();
         }
-       
+
         private void Update()
         {
             var device = InputDevices.GetDeviceAtXRNode(inputSource);
@@ -36,17 +36,13 @@ namespace _Scripts
 
             _character.Move(direction * Time.fixedDeltaTime * speed);
 
-            bool isGrounded = checkIfGrounded();
+            var isGrounded = CheckIfGrounded();
 
             if (isGrounded)
-            {
                 _fallingSpeed = 0;
-            }
             else
-            {
                 _fallingSpeed += gravity * Time.fixedDeltaTime;
-            }
-            
+
             _character.Move(Vector3.up * _fallingSpeed * Time.fixedDeltaTime);
         }
 
@@ -58,11 +54,11 @@ namespace _Scripts
                 new Vector3(capsuleCenter.x, _character.height / 2 + _character.skinWidth, capsuleCenter.z);
         }
 
-        private bool checkIfGrounded()
+        private bool CheckIfGrounded()
         {
-            Vector3 rayStart = transform.TransformPoint(_character.center);
-            float rayLenght = _character.center.y + 0.01f;
-            bool hasHit = Physics.SphereCast(rayStart, _character.radius, Vector3.down, out RaycastHit hitInfo,
+            var rayStart = transform.TransformPoint(_character.center);
+            var rayLenght = _character.center.y + 0.01f;
+            var hasHit = Physics.SphereCast(rayStart, _character.radius, Vector3.down, out var hitInfo,
                 rayLenght, groundLayer);
             return hasHit;
         }

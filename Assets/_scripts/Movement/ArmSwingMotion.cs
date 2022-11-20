@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace _Scripts
+namespace _scripts.Movement
 {
     public class ArmSwingMotion : MonoBehaviour
     {

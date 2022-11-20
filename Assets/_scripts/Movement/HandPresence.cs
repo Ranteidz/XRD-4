@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-namespace _Scripts
+namespace _scripts.Movement
 {
     public class HandPresence : MonoBehaviour
     {
@@ -14,7 +14,7 @@ namespace _Scripts
         private GameObject _spawnedController;
         private GameObject _spawnedHandModel;
         private InputDevice _targetDevice;
-        
+
         private void Start()
         {
             TryInitialize();
