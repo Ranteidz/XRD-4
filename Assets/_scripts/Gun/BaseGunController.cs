@@ -21,7 +21,11 @@ namespace _scripts.Gun
         {
             GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletSpeed * barrel.forward;
-            Destroy(spawnedBullet, 2);
+
+            if (spawnedBullet != null)
+            {
+                Destroy(spawnedBullet, 2);
+            }
         }
     }
 }
