@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,9 +6,8 @@ namespace _scripts.Audio
 {
     public class BaseAudioController : MonoBehaviour
     {
-        private readonly Dictionary<string, AudioSource> _audioSources = new();
+        [SerializeField] private SoundAndName[] _sounds = { };
 
-        private readonly SoundAndName[] _sounds = { };
         private AudioSource _audioSource;
 
         private void Start()
@@ -32,6 +30,7 @@ namespace _scripts.Audio
             }
         }
 
+        [Serializable]
         public struct SoundAndName
         {
             public string SoundName;
