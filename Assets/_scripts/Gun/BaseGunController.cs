@@ -1,4 +1,4 @@
-using System;
+using _scripts.Audio;
 using UnityEngine;
 
 namespace _scripts.Gun
@@ -19,13 +19,10 @@ namespace _scripts.Gun
 
         public void FireBullet()
         {
-            GameObject spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+            var spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletSpeed * barrel.forward;
 
-            if (spawnedBullet != null)
-            {
-                Destroy(spawnedBullet, 2);
-            }
+            if (spawnedBullet != null) Destroy(spawnedBullet, 2);
         }
     }
 }

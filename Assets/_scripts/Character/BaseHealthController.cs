@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
+using _scripts.Audio;
 using UnityEngine;
 
-public class BaseHealthController : MonoBehaviour
+namespace _scripts.Character
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class BaseHealthController : MonoBehaviour
     {
-        
-    }
+        public int Health;
+        private BaseAudioController _baseAudioController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        protected virtual void Start()
+        {
+            _baseAudioController = GetComponent<BaseAudioController>();
+        }
+
+        protected void TakeDamage(int damage = 1)
+        {
+            Health -= damage;
+
+
+            if (Health <= 0)
+            {
+                OnDeath();
+                if (_baseAudioController != null) _baseAudioController.PlayOnce("Death");
+            }
+            else
+            {
+                if (_baseAudioController != null) _baseAudioController.PlayOnce("TakeDamage");
+            }
+        }
+
+        protected abstract void OnDeath();
     }
 }
