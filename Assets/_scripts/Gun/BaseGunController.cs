@@ -24,11 +24,20 @@ namespace _scripts.Gun
 
         public void FireBullet()
         {
-            if (_canShoot)
+            if (fireTime != 0)
             {
-                StartCoroutine(StartFireTimer());
-                StartCoroutine(ShootAtFireRate());
 
+                if (_canShoot)
+                {
+                    StartCoroutine(StartFireTimer());
+                    StartCoroutine(ShootAtFireRate());
+
+                    if (_baseAudioController != null) _baseAudioController.PlayOnce("Shoot");
+                }
+            }
+            else
+            {
+                SpawnBullet();
                 if (_baseAudioController != null) _baseAudioController.PlayOnce("Shoot");
             }
         }
