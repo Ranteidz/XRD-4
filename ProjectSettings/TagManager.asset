@@ -7,6 +7,9 @@ TagManager:
   - Weapon
   - EnemyBullet
   - PlayerBullet
+  - BulletAk47
+  - BulletUMP-45
+  - BulletSkorpion
   layers:
   - Default
   - TransparentFX

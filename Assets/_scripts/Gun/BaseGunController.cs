@@ -9,12 +9,13 @@ namespace _scripts.Gun
         public float bulletSpeed = 40;
         public GameObject bullet;
         public Transform barrel;
+        public GameObject bulletRotator;
         public float fireRate = 2;
         public float fireTime = 1;
         [SerializeField] private bool _canShoot = true;
-        private bool isTimerDone;
 
         private BaseAudioController _baseAudioController;
+        private bool isTimerDone;
 
 
         private void Start()
@@ -26,7 +27,6 @@ namespace _scripts.Gun
         {
             if (fireTime != 0)
             {
-
                 if (_canShoot)
                 {
                     StartCoroutine(StartFireTimer());
@@ -44,7 +44,7 @@ namespace _scripts.Gun
 
         private void SpawnBullet()
         {
-            var spawnedBullet = Instantiate(bullet, barrel.position, barrel.rotation);
+            var spawnedBullet = Instantiate(bullet, barrel.position, bulletRotator.gameObject.transform.rotation);
             spawnedBullet.GetComponent<Rigidbody>().velocity = bulletSpeed * barrel.forward;
 
             if (spawnedBullet != null) Destroy(spawnedBullet, 2);
