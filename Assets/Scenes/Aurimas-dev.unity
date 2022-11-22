@@ -353,6 +353,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28323032}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &154009592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: 5112e6444b23577429168ceb76476ae4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1108868132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &154009596
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154009592}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38359ba798c297e4290e884e97b71855, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &209946819
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,7 +869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_TagString
@@ -930,28 +956,40 @@ PrefabInstance:
       value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.030455152
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.75285167
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.65819025
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -82.324
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -180
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb2136a3cdea8f84bb3b2ca2d025a818, type: 3}
@@ -1417,6 +1455,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 961001896}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1019574188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: eb2136a3cdea8f84bb3b2ca2d025a818,
+    type: 3}
+  m_PrefabInstance: {fileID: 491563966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1019574192
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019574188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1531a86654d81784397200de3f1112c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1108868132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1519,6 +1583,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 5112e6444b23577429168ceb76476ae4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 5112e6444b23577429168ceb76476ae4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08311004
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5112e6444b23577429168ceb76476ae4, type: 3}
@@ -2594,6 +2662,8 @@ MonoBehaviour:
   _sounds:
   - SoundName: Shoot
     AudioClip: {fileID: 8300000, guid: 50b4d9720c65b6d49a4eec0a5167a811, type: 3}
+  - SoundName: Reload
+    AudioClip: {fileID: 8300000, guid: 10c72ce4a746b894fb3c82f428c3fd1d, type: 3}
 --- !u!114 &1390193525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2612,6 +2682,9 @@ MonoBehaviour:
   bulletRotator: {fileID: 1313737025}
   fireRate: 2
   fireTime: 0
+  maxAmmo: 30
+  currentAmmo: 0
+  reloadTime: 1.2
   _canShoot: 1
 --- !u!65 &1390193526
 BoxCollider:
@@ -2781,6 +2854,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5141695232626852442}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1402171796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100004, guid: cd8d56469cf64654eaa21e15c6ae7c18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1759389826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1402171800
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402171796}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d98aafca2d1d6774090ba895e49547b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1508133946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,6 +3334,8 @@ MonoBehaviour:
   _sounds:
   - SoundName: Shoot
     AudioClip: {fileID: 8300000, guid: 51e964d8f2f8d7c4b92b5ad0f4202673, type: 3}
+  - SoundName: Reload
+    AudioClip: {fileID: 8300000, guid: 10c72ce4a746b894fb3c82f428c3fd1d, type: 3}
 --- !u!114 &1615678163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3253,6 +3354,9 @@ MonoBehaviour:
   bulletRotator: {fileID: 448826811}
   fireRate: 1
   fireTime: 2
+  maxAmmo: 30
+  currentAmmo: 0
+  reloadTime: 1.2
   _canShoot: 1
 --- !u!1 &1684376470
 GameObject:
@@ -3586,6 +3690,9 @@ MonoBehaviour:
   bulletRotator: {fileID: 884907122}
   fireRate: 2
   fireTime: 1
+  maxAmmo: 30
+  currentAmmo: 0
+  reloadTime: 2
   _canShoot: 1
 --- !u!114 &1722242257
 MonoBehaviour:
@@ -3602,6 +3709,8 @@ MonoBehaviour:
   _sounds:
   - SoundName: Shoot
     AudioClip: {fileID: 8300000, guid: 3b6c9c24b55eab7489edde00d1a0478d, type: 3}
+  - SoundName: Reload
+    AudioClip: {fileID: 8300000, guid: 10c72ce4a746b894fb3c82f428c3fd1d, type: 3}
 --- !u!82 &1722242258
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3796,6 +3905,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.048051782
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}

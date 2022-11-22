@@ -30,6 +30,11 @@ namespace _scripts.Audio
             }
         }
 
+        public void StopPlayingSound()
+        {
+            _audioSource.Stop();
+        }
+
         [Serializable]
         public struct SoundAndName
         {
