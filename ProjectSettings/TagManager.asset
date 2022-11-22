@@ -4,7 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
+  - Weapon
+  - EnemyBullet
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX
@@ -12,14 +14,14 @@ TagManager:
   - 
   - Water
   - UI
+  - Ground
+  - Body
+  - Grabable
+  - PlayerBullet
   - 
   - 
-  - Cover
-  - Ignore Shot
-  - Cover Invisible
-  - Player
-  - Enemy
-  - Bound
+  - 
+  - 
   - 
   - 
   - 
