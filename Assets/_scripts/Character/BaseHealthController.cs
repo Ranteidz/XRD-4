@@ -13,10 +13,9 @@ namespace _scripts.Character
             _baseAudioController = GetComponent<BaseAudioController>();
         }
 
-        protected void TakeDamage(int damage = 1)
+        public virtual void TakeDamage(int damage = 1)
         {
             Health -= damage;
-
 
             if (Health <= 0)
             {
