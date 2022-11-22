@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using _scripts.Audio;
 using UnityEngine;
@@ -15,12 +14,12 @@ namespace _scripts.Gun
         public float fireTime = 1;
         public int maxAmmo = 10;
         public int currentAmmo;
-        public float reloadTime =2f;
+        public float reloadTime = 2f;
         [SerializeField] private bool _canShoot = true;
-        private bool _isReloadDone = true;
-        private BaseAudioController _baseAudioController;
-        private bool isTimerDone;
         private Animator _animator;
+        private BaseAudioController _baseAudioController;
+        private bool _isReloadDone = true;
+        private bool isTimerDone;
 
         private void Start()
         {
@@ -31,10 +30,7 @@ namespace _scripts.Gun
 
         private void Update()
         {
-            if (currentAmmo <= 0)
-            {
-                StartCoroutine(StartReloading());
-            }
+            if (currentAmmo <= 0) StartCoroutine(StartReloading());
         }
 
         public void FireBullet()

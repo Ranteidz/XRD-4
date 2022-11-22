@@ -5,17 +5,16 @@ namespace _scripts.Character
 {
     public class PlayerHealthController : BaseHealthController
     {
-        protected override void OnDeath()
-        {
-            //Todo reset level
-        }
+        public Action OnCharacterDeath { get; set; }
 
         private void OnCollisionEnter(Collision collision)
         {
-            if (collision.gameObject.CompareTag("EnemyBullet"))
-            {
-                TakeDamage();
-            }
+            if (collision.gameObject.CompareTag("EnemyBullet")) TakeDamage();
+        }
+
+        protected override void OnDeath()
+        {
+            OnCharacterDeath.Invoke();
         }
     }
 }
