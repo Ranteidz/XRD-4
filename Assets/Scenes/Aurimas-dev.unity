@@ -355,9 +355,9 @@ MonoBehaviour:
   - {fileID: 326507318}
   - {fileID: 439164567}
   currentState: 0
-  maxFollowDistance: 30
+  maxFollowDistance: 25
   shootingPoint: {fileID: 1664034003}
-  shootDistance: 20
+  shootDistance: 15
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -1221,9 +1221,9 @@ MonoBehaviour:
   - {fileID: 334709811}
   - {fileID: 1477721597}
   currentState: 0
-  maxFollowDistance: 30
+  maxFollowDistance: 25
   shootingPoint: {fileID: 1513717169}
-  shootDistance: 20
+  shootDistance: 15
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -2010,9 +2010,9 @@ MonoBehaviour:
   - {fileID: 158721234}
   - {fileID: 1390777265}
   currentState: 0
-  maxFollowDistance: 30
+  maxFollowDistance: 25
   shootingPoint: {fileID: 1194359526}
-  shootDistance: 20
+  shootDistance: 15
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -2996,9 +2996,9 @@ MonoBehaviour:
   - {fileID: 326507318}
   - {fileID: 439164567}
   currentState: 0
-  maxFollowDistance: 30
+  maxFollowDistance: 25
   shootingPoint: {fileID: 733168985}
-  shootDistance: 20
+  shootDistance: 15
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -4832,7 +4832,7 @@ GameObject:
   - component: {fileID: 1916557185}
   m_Layer: 9
   m_Name: Bullet test
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

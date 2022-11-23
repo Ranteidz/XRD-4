@@ -1,4 +1,5 @@
 using System;
+using _scripts.Managers;
 using UnityEngine;
 
 namespace _scripts.Character
@@ -7,14 +8,14 @@ namespace _scripts.Character
     {
         public Action OnCharacterDeath { get; set; }
 
-        private void OnCollisionEnter(Collision collision)
+        private void OnTriggerEnter(Collider other)
         {
-            if (collision.gameObject.CompareTag("EnemyBullet")) TakeDamage();
+            if (other.gameObject.CompareTag("EnemyBullet")) TakeDamage();
         }
 
         protected override void OnDeath()
         {
-            OnCharacterDeath.Invoke();
+            LevelManager.ReloadScene();
         }
     }
 }
