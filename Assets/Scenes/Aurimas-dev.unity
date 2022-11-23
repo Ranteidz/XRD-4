@@ -358,7 +358,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1664034003}
   shootDistance: 30
   fireRate: 2
-  velocity: 15
+  velocity: 10
   projectile: {fileID: 1916557179}
 --- !u!1 &209946819
 GameObject:
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1513717169}
   shootDistance: 30
   fireRate: 2
-  velocity: 15
+  velocity: 10
   projectile: {fileID: 1916557179}
 --- !u!195 &560249480
 NavMeshAgent:
@@ -2011,7 +2011,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 1194359526}
   shootDistance: 30
   fireRate: 2
-  velocity: 15
+  velocity: 10
   projectile: {fileID: 1916557179}
 --- !u!195 &1008011739
 NavMeshAgent:
@@ -2965,7 +2965,7 @@ MonoBehaviour:
   shootingPoint: {fileID: 733168985}
   shootDistance: 30
   fireRate: 2
-  velocity: 15
+  velocity: 10
   projectile: {fileID: 1916557179}
 --- !u!195 &1369452358
 NavMeshAgent:

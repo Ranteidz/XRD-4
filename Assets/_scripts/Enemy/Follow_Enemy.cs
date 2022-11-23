@@ -1,50 +1,51 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using UnityEngine.AI;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.AI;
 
 public class Follow_Enemy : MonoBehaviour
 {
-    public enum States {Patrol,Follow, Attack}
-    
+    public enum States
+    {
+        Patrol,
+        Follow,
+        Attack
+    }
+
     public NavMeshAgent agent;
 
     public Transform target;
     public Transform[] wayPoints;
-    
+
     public States currentState;
-    [Header("Shooting")] 
-    public Transform shootingPoint;
+
+    [Header("Shooting")] public Transform shootingPoint;
 
     public float shootDistance = 10f;
-    private bool inSight;
-    private Vector3 directionToTarget;
 
-    [Header("Weapon")] 
-    public float fireRate = 2f;
+    [Header("Weapon")] public float fireRate = 2f;
+
     public float velocity;
     public GameObject projectile;
-    private bool _canShoot;
+    private bool _canShoot = true;
 
-    private int currentWayPoint;
+    private int _currentWayPoint;
+    private Vector3 _directionToTarget;
+
+    private bool _inSight;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        if (agent == null)
-        {
-            agent = GetComponent<NavMeshAgent>();
-        }
+        if (agent == null) agent = GetComponent<NavMeshAgent>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         UpdateStates();
         CheckIfTargetInRangeForFollow();
 
-        StartCoroutine(StartAttack());
+        if (_canShoot) StartCoroutine(StartAttack());
     }
 
     private void UpdateStates()
@@ -60,58 +61,45 @@ public class Follow_Enemy : MonoBehaviour
             case States.Attack:
                 Attack();
                 break;
-            
         }
     }
 
     private void CheckIfTargetInRangeForFollow()
     {
-        directionToTarget = target.position - transform.position;
+        _directionToTarget = target.position - transform.position;
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, directionToTarget.normalized, out hit))
-        {
-            inSight = hit.transform.CompareTag("Player");
-        }
-        
+        if (Physics.Raycast(transform.position, _directionToTarget.normalized, out hit))
+            _inSight = hit.transform.CompareTag("Player");
+
         currentState = States.Follow;
     }
 
     private void Patrol()
     {
-        if (agent.destination != wayPoints[currentWayPoint].position)
-        {
-            agent.destination = wayPoints[currentWayPoint].position;
-        }
+        if (agent.destination != wayPoints[_currentWayPoint].position)
+            agent.destination = wayPoints[_currentWayPoint].position;
 
-        if (HasReached())
-        {
-           
-            currentWayPoint = (currentWayPoint + 1) % wayPoints.Length;
-        }
+        if (HasReached()) _currentWayPoint = (_currentWayPoint + 1) % wayPoints.Length;
     }
+
     private void Follow()
     {
-        if (agent.remainingDistance <= shootDistance && inSight)
+        if (agent.remainingDistance <= shootDistance && _inSight)
         {
             agent.ResetPath();
             /*currentState = States.Attack;*/
         }
         else
         {
-            if (target != null)
-            {
-                agent.SetDestination(target.position);
-            }    
+            if (target != null) agent.SetDestination(target.position);
         }
     }
+
     private void Attack()
     {
-        if (!inSight)
-        {
-            currentState = States.Follow;
-        }
+        if (!_inSight) currentState = States.Follow;
         LookAtTarget();
         StartCoroutine(StartAttack());
     }
@@ -122,6 +110,8 @@ public class Follow_Enemy : MonoBehaviour
         var moveDirection = (target.transform.position - spawnedProjectile.transform.position).normalized;
 
         spawnedProjectile.GetComponent<Rigidbody>().velocity = velocity * moveDirection;
+        
+        if (spawnedProjectile != null) Destroy(spawnedProjectile, 2);
     }
 
     private IEnumerator StartAttack()
@@ -134,16 +124,16 @@ public class Follow_Enemy : MonoBehaviour
 
     private void LookAtTarget()
     {
-        Vector3 lookDirection = directionToTarget;
+        var lookDirection = _directionToTarget;
         lookDirection.y = 0f;
 
-        Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
-        
+        var lookRotation = Quaternion.LookRotation(lookDirection);
+
         transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * agent.angularSpeed);
     }
 
     private bool HasReached()
     {
-        return (agent.hasPath && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance);
+        return agent.hasPath && !agent.pathPending && agent.remainingDistance <= agent.stoppingDistance;
     }
 }
