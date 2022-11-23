@@ -349,14 +349,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 197322493}
-  target: {fileID: 5141695232626852443}
+  target: {fileID: 1256935897}
   wayPoints:
   - {fileID: 824241691}
   - {fileID: 326507318}
   - {fileID: 439164567}
   currentState: 0
+  maxFollowDistance: 30
   shootingPoint: {fileID: 1664034003}
-  shootDistance: 30
+  shootDistance: 20
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -1214,14 +1215,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 560249480}
-  target: {fileID: 5141695232626852443}
+  target: {fileID: 1256935897}
   wayPoints:
   - {fileID: 1919550419}
   - {fileID: 334709811}
   - {fileID: 1477721597}
   currentState: 0
+  maxFollowDistance: 30
   shootingPoint: {fileID: 1513717169}
-  shootDistance: 30
+  shootDistance: 20
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -2002,14 +2004,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1008011739}
-  target: {fileID: 5141695232626852443}
+  target: {fileID: 1256935897}
   wayPoints:
   - {fileID: 1676046245}
   - {fileID: 158721234}
   - {fileID: 1390777265}
   currentState: 0
+  maxFollowDistance: 30
   shootingPoint: {fileID: 1194359526}
-  shootDistance: 30
+  shootDistance: 20
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -2781,6 +2784,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1220854733}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1256935896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1256935897}
+  m_Layer: 7
+  m_Name: MiddleBody
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1256935897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256935896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5141695232626852443}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313737025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,14 +2990,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 1369452358}
-  target: {fileID: 5141695232626852443}
+  target: {fileID: 1256935897}
   wayPoints:
   - {fileID: 824241691}
   - {fileID: 326507318}
   - {fileID: 439164567}
   currentState: 0
+  maxFollowDistance: 30
   shootingPoint: {fileID: 733168985}
-  shootDistance: 30
+  shootDistance: 20
   fireRate: 2
   velocity: 10
   projectile: {fileID: 1916557179}
@@ -5198,7 +5233,7 @@ PrefabInstance:
     - target: {fileID: 1009708305114904204, guid: 7b267add911439b4d825d779786376f1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.904
       objectReference: {fileID: 0}
     - target: {fileID: 1009708305114904204, guid: 7b267add911439b4d825d779786376f1,
         type: 3}
@@ -5239,6 +5274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009708305114904205, guid: 7b267add911439b4d825d779786376f1,
+        type: 3}
+      propertyPath: m_RequestedTrackingOriginMode
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1009708306310155824, guid: 7b267add911439b4d825d779786376f1,
         type: 3}
