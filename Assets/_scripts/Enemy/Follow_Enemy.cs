@@ -38,7 +38,6 @@ public class Follow_Enemy : MonoBehaviour
     private void Start()
     {
         if (agent == null) agent = GetComponent<NavMeshAgent>();
-        
     }
 
     // Update is called once per frame
@@ -46,8 +45,6 @@ public class Follow_Enemy : MonoBehaviour
     {
         UpdateStates();
         CheckIfTargetInRangeForFollow();
-
-        if (_canShoot) StartCoroutine(StartAttack());
     }
 
     private void UpdateStates()
@@ -68,12 +65,12 @@ public class Follow_Enemy : MonoBehaviour
 
     private void CheckIfTargetInRangeForFollow()
     {
-        _directionToTarget = new Vector3(target.position.x,target.position.y +2, target.position.z) - transform.position;
-
-        RaycastHit hit;
-
-        if (Physics.Raycast(transform.position, _directionToTarget.normalized, out hit))
-            _inSight = hit.transform.CompareTag("Player");
+        if (Vector3.Distance(transform.position, target.position) < shootDistance)
+            currentState = States.Attack;
+        else if (Vector3.Distance(transform.position, target.position) < maxFollowDistance)
+            currentState = States.Follow;
+        else
+            currentState = States.Patrol;
     }
 
     private void Patrol()
@@ -83,40 +80,19 @@ public class Follow_Enemy : MonoBehaviour
 
         if (HasReached()) _currentWayPoint = (_currentWayPoint + 1) % wayPoints.Length;
 
-        if (_inSight && _directionToTarget.magnitude <= shootDistance)
-        {
-            currentState = States.Follow;
-        }
+        if (_inSight && _directionToTarget.magnitude <= shootDistance) currentState = States.Follow;
     }
 
     private void Follow()
     {
-        if (_directionToTarget.magnitude <= shootDistance && _inSight)
-        {
-            agent.ResetPath();
-            currentState = States.Attack;
-        }
-        else
-        {
-            if (target != null) agent.SetDestination(target.position);
-            if (_directionToTarget.magnitude > maxFollowDistance)
-            {
-                currentState = States.Patrol;
-            }
-        }
+        if (target != null) agent.SetDestination(target.position);
     }
 
     private void Attack()
     {
-        if (!_inSight || _directionToTarget.magnitude > shootDistance)
-        {
-            currentState = States.Follow;
-        }
+        agent.ResetPath();
         LookAtTarget();
-        if (_canShoot)
-        {
-            StartCoroutine(StartAttack());
-        }
+        if (_canShoot) StartCoroutine(StartAttack());
     }
 
     private void Shoot()
@@ -125,7 +101,7 @@ public class Follow_Enemy : MonoBehaviour
         var moveDirection = (target.transform.position - spawnedProjectile.transform.position).normalized;
 
         spawnedProjectile.GetComponent<Rigidbody>().velocity = velocity * moveDirection;
-        
+
         if (spawnedProjectile != null) Destroy(spawnedProjectile, 5);
     }
 
