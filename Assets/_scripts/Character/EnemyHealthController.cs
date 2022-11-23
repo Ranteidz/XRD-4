@@ -25,7 +25,6 @@ namespace _scripts.Character
             }
 
             isEnemyDead = true;
-            //todo enemyManager, death anim, notify enemies left
             StartCoroutine(StartDeathTimer());
         }
 
@@ -53,7 +52,6 @@ namespace _scripts.Character
             animator.SetBool("Dead", true);
             yield return new WaitForSeconds(1);
             Destroy(gameObject);
-            
         }
     }
 }

@@ -1,57 +1,12 @@
 fileFormatVersion: 2
-guid: f9d556d4cf309854da4b90d67bc10b1a
+guid: e0d06c556ef9bf84580166723ed85fb2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1001_Diffuse
-    second: {fileID: 2800000, guid: cd933cad873891843a73b22a4a18d823, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1001_Glossiness
-    second: {fileID: 2800000, guid: eed336e592db9dd458344e65b065e5b2, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1001_Normal
-    second: {fileID: 2800000, guid: 0e3faa477845d8d45bb013e6f987fa36, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1001_Specular
-    second: {fileID: 2800000, guid: 9b23681d45a855445a271f575a5f356e, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1002_Diffuse
-    second: {fileID: 2800000, guid: 1d2408ce8d17f404b8a2e534a14fd24d, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1002_Emissive
-    second: {fileID: 2800000, guid: 66edd1c0fd367d64a8184947f66505fe, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1002_Glossiness
-    second: {fileID: 2800000, guid: 31f76b37c817f554d87ce9bc150adbcb, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1002_Normal
-    second: {fileID: 2800000, guid: 9516a679667ae07418d6e1535ea0ebf6, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Ch15_1002_Specular
-    second: {fileID: 2800000, guid: 5071adfc8c1218f4380e0334a1679710, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
