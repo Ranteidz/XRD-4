@@ -13,10 +13,10 @@ namespace _scripts.Character
             Destroy(gameObject);
         }
 
-        private void OnTriggerEnter(Collider other)
+        private void OnCollisionEnter(Collision collision)
         {
-            Debug.Log("Hot hit by: " + other.gameObject.tag);
-            switch (other.gameObject.tag)
+            Debug.Log("Hot hit by: " + collision.gameObject.tag);
+            switch (collision.gameObject.tag)
             {
                 case "BulletAk47":
                     base.TakeDamage(15);

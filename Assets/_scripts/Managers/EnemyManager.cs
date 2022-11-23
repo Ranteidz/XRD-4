@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using _scripts.Character;
+using _scripts.UI;
 using UnityEngine;
 
 namespace _scripts.Managers
@@ -14,12 +15,14 @@ namespace _scripts.Managers
         private void Start()
         {
             _numberOfEnemies = enemies.Count;
+            InformationUIController.SetEnemiesLeft(_numberOfEnemies);
             foreach (var enemy in enemies)
             {
                 var x =  enemy.GetComponent<EnemyHealthController>();
                 x.OnEnemyDeath += () =>
                 {
                     _numberOfEnemies--;
+                    InformationUIController.SetEnemiesLeft(_numberOfEnemies);
                 };
             }
         }

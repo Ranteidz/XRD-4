@@ -1,3 +1,4 @@
+using System.Collections;
 using _scripts.Audio;
 using UnityEngine;
 
@@ -7,13 +8,19 @@ namespace _scripts.Character
     {
         public int Health;
         private BaseAudioController _baseAudioController;
+        private bool canPlayTakeDamage = true;
 
         protected virtual void Start()
         {
             _baseAudioController = GetComponent<BaseAudioController>();
         }
 
-        public virtual void TakeDamage(int damage = 1)
+        public void PlayGtaClip()
+        {
+            if(_baseAudioController != null) _baseAudioController.PlayOnce("AwShit");
+        }
+
+        protected virtual void TakeDamage(int damage = 1)
         {
             Health -= damage;
 
@@ -24,8 +31,20 @@ namespace _scripts.Character
             }
             else
             {
-                if (_baseAudioController != null) _baseAudioController.PlayOnce("TakeDamage");
+                if (canPlayTakeDamage)
+                {
+                    StartCoroutine(TakeDamage());
+                }
             }
+        }
+
+        private IEnumerator TakeDamage()
+        {
+            canPlayTakeDamage = false;
+                if (_baseAudioController != null) _baseAudioController.PlayOnce("TakeDamage");
+                yield return new WaitForSeconds(1);
+                canPlayTakeDamage = true;
+
         }
 
         protected abstract void OnDeath();
