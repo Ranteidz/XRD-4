@@ -7,6 +7,10 @@ TagManager:
   - Weapon
   - EnemyBullet
   - PlayerBullet
+  - Enemy
+  - BulletUMP-45
+  - BulletAk47
+  - BulletSkorpion
   layers:
   - Default
   - TransparentFX
@@ -18,8 +22,8 @@ TagManager:
   - Body
   - Grabable
   - PlayerBullet
-  - 
-  - 
+  - TeleportationArea
+  - Enemy
   - 
   - 
   - 
