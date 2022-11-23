@@ -8,8 +8,15 @@ namespace _scripts.Character
 {
     public class EnemyHealthController : BaseHealthController
     {
+        Animator animator;
         public event Action OnEnemyDeath;
         private bool isEnemyDead = false;
+        
+        private void Start()
+        {
+            animator = gameObject.GetComponent<Animator>();
+           
+        }
         protected override void OnDeath()
         {
             if (!isEnemyDead)
@@ -43,8 +50,10 @@ namespace _scripts.Character
         private IEnumerator StartDeathTimer()
         {
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            animator.SetBool("Dead", true);
             yield return new WaitForSeconds(1);
             Destroy(gameObject);
+            
         }
     }
 }
