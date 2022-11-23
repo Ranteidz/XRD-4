@@ -1,16 +1,25 @@
 using System;
+using System.Collections;
+using _scripts.Managers;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace _scripts.Character
 {
     public class EnemyHealthController : BaseHealthController
     {
         public event Action OnEnemyDeath;
+        private bool isEnemyDead = false;
         protected override void OnDeath()
         {
+            if (!isEnemyDead)
+            {
+                OnEnemyDeath?.Invoke();
+            }
+
+            isEnemyDead = true;
             //todo enemyManager, death anim, notify enemies left
-            OnEnemyDeath?.Invoke();
-            Destroy(gameObject);
+            StartCoroutine(StartDeathTimer());
         }
 
         private void OnCollisionEnter(Collision collision)
@@ -30,6 +39,12 @@ namespace _scripts.Character
                 default:
                     return;
             }
+        }
+        private IEnumerator StartDeathTimer()
+        {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            yield return new WaitForSeconds(1);
+            Destroy(gameObject);
         }
     }
 }
