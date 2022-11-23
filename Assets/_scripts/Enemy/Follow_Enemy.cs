@@ -15,7 +15,9 @@ public class Follow_Enemy : MonoBehaviour
 
     public Transform target;
     public Transform[] wayPoints;
-
+    private int _waypointIndex;
+    private Vector3 _followDest;
+ 
     public States currentState;
     public float maxFollowDistance = 30;
 
@@ -65,6 +67,8 @@ public class Follow_Enemy : MonoBehaviour
 
     private void CheckIfTargetInRangeForFollow()
     {
+        _directionToTarget = target.position - transform.position;
+        
         if (Vector3.Distance(transform.position, target.position) < shootDistance)
             currentState = States.Attack;
         else if (Vector3.Distance(transform.position, target.position) < maxFollowDistance)
@@ -75,12 +79,21 @@ public class Follow_Enemy : MonoBehaviour
 
     private void Patrol()
     {
-        if (agent.destination != wayPoints[_currentWayPoint].position)
-            agent.destination = wayPoints[_currentWayPoint].position;
+        _followDest = wayPoints[_waypointIndex].position;
+        agent.SetDestination(_followDest);
+        if (Vector3.Distance(transform.position, _followDest) < 1)
+        {
+            IterateWaypointIndex();
+        }
+    }
 
-        if (HasReached()) _currentWayPoint = (_currentWayPoint + 1) % wayPoints.Length;
-
-        if (_inSight && _directionToTarget.magnitude <= shootDistance) currentState = States.Follow;
+    private void IterateWaypointIndex()
+    {
+        _waypointIndex++;
+        if (_waypointIndex == wayPoints.Length)
+        {
+            _waypointIndex = 0;
+        }
     }
 
     private void Follow()
