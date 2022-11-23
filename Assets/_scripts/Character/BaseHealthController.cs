@@ -1,5 +1,6 @@
 using System.Collections;
 using _scripts.Audio;
+using _scripts.UI;
 using UnityEngine;
 
 namespace _scripts.Character
@@ -13,6 +14,7 @@ namespace _scripts.Character
         protected virtual void Start()
         {
             _baseAudioController = GetComponent<BaseAudioController>();
+            InformationUIController.SetPlayerHealth(Health);
         }
 
         public void PlayGtaClip()
